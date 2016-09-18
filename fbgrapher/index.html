@@ -1,0 +1,142 @@
+
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+-->
+<html>
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="vendors/switchery/dist/switchery.css" /> -->
+
+  <style>
+  body {
+    background-color: #393318;
+  }
+  #content_right {
+    border-left: 1px solid #d7d7d7;
+  }
+  .text-primary {
+    color: #333;
+    font-weight: bold;
+  }
+  </style>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+<body>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-filter"></span> What do you want to search ?</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div id="content_left" class="col-md-3">
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-user"></span> &nbsp; PEOPLE</a>
+            </div>
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-list-alt"></span> &nbsp; STORIES</a>
+            </div>
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-th"></span> &nbsp; GROUPS</a>
+            </div>
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-flag"></span> &nbsp; PAGES</a>
+            </div>
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-home"></span> &nbsp; PLACES</a>
+            </div>
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-flash"></span> &nbsp; APPS</a>
+            </div>
+            <div>
+              <a href="#" class="btn text-primary"><span class="glyphicon glyphicon-question-sign"></span> &nbsp; HELP</a>
+            </div>
+          </div>
+          <div id="content_right" class="col-md-9">
+            <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+              <div class="form-group">
+                <label class="control-label col-md-3">Age</label>
+                <div class="col-md-3">
+                  <select id="people_age" class="form-control">
+                    <option value="any" data-graph="">Any</option>
+                    <option value="equal" data-graph="users-age/">Equal to</option>
+                    <option value="between" data-graph="users-age-2/">Between</option>
+                    <option value="older" data-graph="users-older/">Older than</option>
+                    <option value="younger" data-graph="users-younger/">Younger than</option>
+                    <option value="born" data-graph="date/users-born/">Born in</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                <div class="col-md-8">
+                  <div id="people_gender" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="gender" value="" autocomplete="off" checked="checked">All
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="gender" value="males/" autocomplete="off">Male
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="gender" value="females/" autocomplete="off">Female
+                    </label>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Relationship</label>
+                <div class="col-md-4">
+                  <select id="people_relationship" class="form-control">
+                    <option value="">All</option>
+                    <option value="single/users/">Single</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Live in</label>
+                <div class="col-md-8">
+                  <input id="people_live" class="form-control col-md-7 col-xs-12" type="text" name="middle-name" placeholder="ex: Yogyakarta">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="middle-name" class="control-label col-md-3">Members of</label>
+                <div class="col-md-8">
+                  <input disabled id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name" placeholder="ex: JP Underground">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Fans of</label>
+                <div class="col-md-8">
+                  <input disabled id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name" placeholder="ex: Pondok Programmer">
+                </div>
+              </div>
+              <div class="ln_solid"></div>
+              <div class="form-group">
+                <span class="col-md-8 text-center">
+                  <label><span class="glyphicon glyphicon-info-sign"></span> Mode &nbsp; &nbsp;</label>
+                  <label>
+                    <input disabled type="checkbox" class="js-switch"  data-switchery="true" checked /> Intersect
+                  </label>
+                </span>
+                <span class="col-md-3 text-right">
+                  <button id="people_search" type="submit" class="btn btn-success text-right">Search</button>
+                </span>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+  <script type="text/javascript" src="js/popup.js"></script>
+</body>
+</html>
+
